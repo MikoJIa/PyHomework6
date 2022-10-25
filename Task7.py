@@ -98,4 +98,83 @@ def count_positives_sum_negatives(arr):
     return [positive_count, negative_count]
 
 res = count_positives_sum_negatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15])
-print(res)       
+print(res)
+
+# Дано число n, необходимо вернуть количество положительных нечётных чисел.
+
+def odd_count(n):
+    count = 0
+    while n > count:
+        for i in range(1, n):
+            if i % 2 != 0:
+                count += 1
+        return count
+print(odd_count(15023))
+
+# Необходимо найти строку иголка в списке и вернуть строку в которой говорится, что игла найдена в позиции....
+# (found the needle at position  5)
+
+# Первый способ решения!!!!
+
+def find_needle(haystack):
+    for i in haystack:
+        if 'needle' in i:
+            index = haystack.index('needle')
+    return print(f'found the needle at position {index}')
+
+# Второй способ решения!!!!
+
+def find_needle(haystack):
+    return 'found the needle at position {}'.format(haystack.index('needle'))
+# Третий способ решения!!!!
+
+def find_needle(haystack):
+    index = 0
+    for i in haystack:
+        if i == 'needle':
+            return f"found the needle at position {index}"
+        index += 1
+
+res = find_needle(['hay', 'junk', 'hay', 'hay', 'morejunk', 'needle', 'randomjunk'])
+print(res)
+
+# Необходимо взять строку с именем и сделать инициалы в верхнем регистре
+# Пример: Sam Harris => S.H
+# Пример: sam harris => S.H
+
+def abbrev_name(name):
+    result_string = name.split()[0][:1].capitalize() + '.' + name.split()[1][:1].capitalize()
+    return result_string
+
+def abbrev_name(name):
+    first, last = name.upper().split(' ')
+    return first[0] + '.' + last[0]
+
+def abbrev_name(name):
+    first_initial = name[0]
+    for letter in range(len(name)):
+        if name[letter] == ' ':
+            last_initial = name[letter + 1]
+    return (first_initial.upper() + '.' + last_initial.upper())
+res = (abbrev_name('Sam Harris'))
+print(res)
+
+def palindrom(string):
+    revesed_str = string[::-1]
+    if revesed_str.lower() == string.lower():
+        return True
+    else:
+        return False
+
+def is_palindrome(s):
+    if s.lower() == s[::-1].lower():
+        return True
+    else:
+        return False
+
+def is_palindrome(s):
+    s = s.lower()
+    return s[::-1] == s
+
+res = palindrom('abba')
+print(res)
